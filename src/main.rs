@@ -95,7 +95,7 @@ async fn status_json() -> String {
 }
 
 async fn json(url: &str) -> String {
-    let body = reqwest::get(url.to_string())
+    let body = reqwest::get(url)
         .and_then(|response| response.text())
         .await
         .expect("HTTP request for json failed");
@@ -105,7 +105,7 @@ async fn json(url: &str) -> String {
 }
 
 async fn xml(url: &str) -> String {
-    let body = reqwest::get(url.to_string())
+    let body = reqwest::get(url)
         .and_then(|response| response.text())
         .await
         .expect("HTTP request for xml failed");
